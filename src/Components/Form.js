@@ -8,7 +8,7 @@ export default class form extends Component {
             <div className='container'>
                 <form className='form' method={this.props.metodo}> 
                     <label className='Titulo'>
-                        {this.props.title} curso
+                        {this.props.title} course
                         <br></br>
                         <input type = "text" placeholder='Nombre' id = "text"></input>
                     </label>
