@@ -3,6 +3,8 @@ import logo from '../delicius.png'
 
 export default class form extends Component {
     render () {
+
+        // totally innecessary and stupid
         const arreglo = [1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12, 13];
         return (
             <div className='container'>
@@ -16,7 +18,7 @@ export default class form extends Component {
                 </form>
                 <div>
                 {arreglo.map((e) => 
-                    <img key={e} src={logo} alt='carita feliz'></img>
+                    <img className='image' key={e} src={logo} alt='carita feliz'></img>
                 )}
                 </div>
             </div>

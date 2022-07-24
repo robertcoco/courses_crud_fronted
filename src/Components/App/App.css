@@ -140,9 +140,13 @@ body::-webkit-scrollbar-thumb {
 
 .card {
   display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 200px;
   width: 200px;
   margin: 10px;
+  transition: all .3s;
 }
 
 @media screen and (min-height: 800px  ) {
@@ -169,5 +173,24 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.card:hover {
+  height: 220px;
+  width: 220px;
+  margin: 10px;
+}
+
+.card-title{
+  text-align: center;
+}
+
+.card-text {
+  text-align: center;
+}
+
+.card-body {
+  width: 198px;
+  height: 164px;
 }
 

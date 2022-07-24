@@ -1,10 +1,10 @@
 import './App.css';
-import Create from '../../Pages/Create/index.jsx';
-import Edit from '../../Pages/Edit/index.jsx';
+import Create from '../../Pages/Create/index.js';
+import Edit from '../../Pages/Edit/index.js';
 import { gsap } from "gsap";
 import {useRef, useEffect} from 'react';
-import Nav from '../Nav.js';
-import Home from '../Home.js';
+import Nav from '../Nav.jsx';
+import Home from '../Home.jsx';
 import Courses from '../Courses.json';
 import {
   BrowserRouter as Router,
@@ -13,11 +13,15 @@ import {
 } from "react-router-dom";
 
 function App() {
-  
+
   const boxRef = useRef();
   // wait until DOM has been rendered
+  
   useEffect(() => {
     gsap.to(boxRef.current, {rotation: "360", duration: .5});
+    gsap.to(".card", {rotation: 360, duration: .5});
+    gsap.to(".image", {rotation: 360, duration: 1});
+    gsap.fromTo(".form", {opacity: 0, duration: 3}, {opacity: 1, duration: 4, delay: 1});
   });
 
   return (
@@ -26,8 +30,8 @@ function App() {
       <Routes>
         <Route path='/create' element= {<Create></Create>}/>
         <Route path='/edit' element= {<Edit></Edit>}/>
-        <Route path='/home' element= {<Home ref={boxRef} tasks = {Courses}></Home>}/>
-        <Route path='/' element= {<Home ref={boxRef} tasks = {Courses}></Home>}/>
+        <Route path='/home' element= {<Home tasks = {Courses}></Home>}/>
+        <Route path='/' element= {<Home tasks = {Courses}></Home>}/>
       </Routes>
       <footer className='footer'  ref={boxRef}>
         <nav className='Nav-footer'>

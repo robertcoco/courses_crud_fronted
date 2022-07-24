@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import Form from '../../Components/Form.js';
+import Form from '../../Components/Form.jsx';
 
 
-export default class Edit extends Component {
+export default class Create extends Component {
 
     render() {
-        const title = "Edit";
+        const title = "Create";
         return (
         <Form title = {title}></Form>
         );
