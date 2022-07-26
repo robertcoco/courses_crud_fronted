@@ -1,13 +1,15 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect} from 'react';
 import Form from '../../Components/Form.jsx';
+import {CreateData} from '../../functions/Request.js';
 
-
-export default class Create extends Component {
-
-    render() {
+function Create(props) {
         const title = "Create";
-        return (
-        <Form title = {title}></Form>
-        );
-    }
-}
+        const metodo = "POST";
+        const accion = "http://localhost:3000/api/course/create"
+        const buttonName = 'Crear'
+    return (
+        <Form metodo = {metodo} title = {title} accion = {accion} button = {buttonName}></Form>
+
+       )
+   }    
+export default Create;

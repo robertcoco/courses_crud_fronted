@@ -13,6 +13,10 @@ import {
 } from "react-router-dom";
 
 function App() {
+  
+  const state = {
+    show: true
+  }
 
   const boxRef = useRef();
   // wait until DOM has been rendered
