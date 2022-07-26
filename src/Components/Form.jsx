@@ -1,39 +1,38 @@
 import React, {Component} from 'react';
 import logo from '../delicius.png';
 import {CreateData} from '../functions/Request.js';
+import M from 'materialize-css';
+import {Link} from 'react-router-dom';
 export default class form extends Component {
-
+    
     constructor() {
         super();
-        this.state = {
+         this.state = {
             title: '',
             description: '',
             teacher: '',
-            topic: ''
+            topic: '',
+            _id: ''
         }
         this.handleChange = this.handleChange.bind(this);
         this.addTask = this.addTask.bind(this);
     }
-
+    returnTitle(title) {
+        return this.state;
+    }
     addTask(e) {
-        CreateData(this.state);
+        CreateData(this.state.id,this.state)
+        this.setState({
+            title: '',
+            description: '',
+            teacher: '',
+            topic: '',
+            _id: ''
+        })
+        M.toast();
         e.preventDefault();
     }
-
-    async EditCourses (id, datos) {
-        if(datos !== null) {
-            await fetch("http://localhost:3000/api/course/edit", {
-                method: "PUT",
-                body: JSON.stringify(datos),
-                headers: {
-                    'Content-Type': 'application/json'     
-                }
-            }).then(res => res.json()).
-            then(data => console.log(data)).
-            catch(err => console.log(err));
-        }
-    }
-
+    
     handleChange(e) {
         const {name, value} = e.target;
         this.setState({
@@ -56,7 +55,7 @@ export default class form extends Component {
                     <textarea value={this.state.description} onChange={this.handleChange} required  placeholder='Descripcion' className = "text" name='description'></textarea>
                     <input value={this.state.teacher} onChange={this.handleChange} type = "text" placeholder='Profesor' className = "text" name='teacher'></input>
                     <input value={this.state.topic} onChange={this.handleChange} type = "text" placeholder='topic' className = "text" name='topic'></input>
-                    <input onClick= {this.addTask || this.EditCourses} type = "submit" value= {propiedades.button} id = "button"></input>
+                    <input onClick= {this.addTask} type = "submit" value= {propiedades.button} id = "button"></input>
 
                 </form>
                 <div>
@@ -64,7 +63,9 @@ export default class form extends Component {
                     <img className='image' key={e} src={logo} alt='carita feliz'></img>
                 )}
                 </div>
+                
             </div>
         )
     }
 }
+export const state = new form().returnTitle();

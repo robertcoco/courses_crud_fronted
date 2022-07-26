@@ -4,9 +4,16 @@ const GetData = async(state) => {
     state(request.data.data);
 }
 
-const CreateData = async(state) => {
-    const request = await axios.post('http://localhost:3000/api/course/create',state);
-    console.log(request);
+const CreateData = async(id,state) => {
+    if(id){
+        const request = await axios.get('http://localhost:3000/api/course/',state);
+        state(request.data.data);
+    console.log(request);    
+    } else {
+        const request = await axios.post('http://localhost:3000/api/course/create',state);
+        console.log(request);
+        
+    }
 }
 
 const DeleteCourse = async(id, datos) => {

@@ -1,15 +1,14 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect} from 'react';
 import Form from '../../Components/Form.jsx';
 
-
-export default class Edit extends Component {
-
-    render() {
-        const title = "Edit";
-        const metodo = "GET";
+function Edit(props) {
+        const title = "Editar";
+        const metodo = "POST";
+        const accion = "http://localhost:3000/api/course/create"
         const buttonName = 'Editar'
-        return (
+    return (
         <Form metodo = {metodo} title = {title} button = {buttonName}></Form>
-        );
-    }
-}
+
+       )
+   }    
+export default Edit;

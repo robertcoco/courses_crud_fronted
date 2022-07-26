@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {GetData, DeleteCourse} from '../functions/Request.js'
+import {GetData, DeleteCourse, CreateData} from '../functions/Request.js'
 import {
     BrowserRouter as Router,
     Routes,
@@ -15,7 +15,7 @@ import {
             GetData(setCourses);
         },[]) 
     let datos = {};
-    let id;
+
      return (
                 <>{courses !== null ?(
                     <div className='container-home'>
@@ -28,9 +28,8 @@ import {
                                   
                         }}
                         id = "eliminar"></button>
-
                         <Link to='/edit' id ="editar" >
-                            <button  id = "buttonEdit">Editar</button>
+                            <button onClick={() =>GetData(course)} id = "buttonEdit">Editar</button>
                         </Link>
 
                         <div className="card-body">
@@ -40,7 +39,9 @@ import {
                         </div>)}
                     </div>
                 ):("adios")}
+                
                 </>
+        
         )
     }    
 export default Home;
