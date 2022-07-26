@@ -1,5 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {GetData, DeleteCourse} from '../functions/Request.js'
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Link
+  } from "react-router-dom";
 // creating react component called Home 
 // which is the actually the first page in being loaded.
 
@@ -23,9 +29,9 @@ import {GetData, DeleteCourse} from '../functions/Request.js'
                         }}
                         id = "eliminar"></button>
 
-                        <a href='/edit' id ="editar" >
+                        <Link to='/edit' id ="editar" >
                             <button  id = "buttonEdit">Editar</button>
-                        </a>
+                        </Link>
 
                         <div className="card-body">
                             <h4 className="card-title">{course.title}</h4>
