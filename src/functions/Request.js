@@ -1,20 +1,22 @@
 import axios from 'axios';
-const GetData = async(state) => {
-    const request =  await axios.get("http://localhost:3000/api/course/");
-    state(request.data.data);
+
+const GetData = async() => {
+    const { data } = await axios.get("http://localhost:3000/api/course/");
+
+    if (data.success) {
+        return data.data
+    }
+
+    return null
 }
 
-const CreateData = async(id,state) => {
-    if(id){
-        const request = await axios.get('http://localhost:3000/api/course/',state);
-        state(request.data.data);
-    console.log(request);    
-    } else {
-        const request = await axios.post('http://localhost:3000/api/course/create',state);
-        console.log(request);
+const CreateData = async(state) => {
+    const {data: res} = await axios.post('http://localhost:3000/api/course/create', state);
         
-    }
+    return res
 }
+
+// TODO: poner delete con axios.
 
 const DeleteCourse = async(id, datos) => {
     const data = datos;
@@ -27,15 +29,13 @@ const DeleteCourse = async(id, datos) => {
     })
 }
 
-const EditCourses = async(id, datos) => {
-    if(datos !== null) {
-        await fetch("http://localhost:3000/api/course/edit", {
-            method: "PUT",
-            body: JSON.stringify(datos),
-            headers: {
-                'Content-Type': 'application/json'     
-            }
-        })
+const EditData = async(data) => {
+    if(data && data.id) {
+        const {data: res} = await axios.put('http://localhost:3000/api/course/edit', data);
+        return res
+    }else {
+        console.log("Undefinded data or id")
+        return null
     }
 }
 
@@ -43,4 +43,5 @@ export {
     CreateData,
     GetData,
     DeleteCourse,
+    EditData
 };
