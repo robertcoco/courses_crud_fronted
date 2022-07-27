@@ -7,9 +7,6 @@ function useAnimation() {
       
     useEffect(() => {
         gsap.to(animationRef.current, {rotation: "360", duration: .5});
-        gsap.to(".card", {rotation: 360, duration: .5});
-        gsap.to(".image", {rotation: 360, duration: 1});
-        gsap.fromTo(".form", {opacity: 0, duration: 3}, {opacity: 1, duration: 4, delay: 1});
     });
 
 

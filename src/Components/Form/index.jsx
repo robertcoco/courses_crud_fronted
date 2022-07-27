@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from '../../delicius.png';
-// import {Link} from 'react-router-dom';
 
 function Form(props) {
+
     const [state, setState] = React.useState({
         title: '',
         description: '',
@@ -15,7 +15,7 @@ function Form(props) {
     // React.useEffect()
 
     const addTask = (e) => {
-        props.onAction(state, setState)
+        props.onAction(state, setState);
         e.preventDefault();
     }
     
@@ -27,10 +27,11 @@ function Form(props) {
         });
     }
 
+
     const arreglo = [1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12, 13];
 
     return (
-        <div className='container'>
+            <div className='container'>
             <form  className='form'> 
                 <label className='Titulo'>
                     {props.title} course
@@ -48,7 +49,7 @@ function Form(props) {
                 )}
             </div>
         </div>
-    )
+        )
 }
 
-export default Form
+export default Form;
