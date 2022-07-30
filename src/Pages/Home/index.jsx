@@ -17,8 +17,34 @@ function Home(props) {
         getCourses();
     }, [])
 
+    useEffect(()=> {
+        console.log("okay")
+        GetData()
+            .then((data)=> setCourses(data))
+            .catch((err)=> console.log(err))
+    }, [])
+
+    
+
     return (
-        <Card setCourse={props.setCourse} courseIDSetter = {props.courseIDSetter}/>
+            <>
+            {courses !== null 
+            ? (
+                <div className='container-home'>
+                    {courses.map(course => 
+                        <Card 
+                            key={course._id} 
+                            course={course} 
+                            courseIDSetter={props.courseIDSetter}
+                        />
+                    )}
+                </div>
+            )
+            :(
+                <h4>Not Courses were found</h4>
+            )}
+            </>
+    
     )
 }
 

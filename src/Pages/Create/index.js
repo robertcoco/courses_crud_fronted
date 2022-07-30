@@ -1,7 +1,6 @@
 import React from 'react';
 import Form from '../../Components/Form';
 import { CreateData } from '../../functions/Request.js';
-import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 
 function Create(props) {
